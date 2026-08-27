@@ -1,0 +1,26 @@
+{
+  "name": "mdedit",
+  "version": "0.1.0",
+  "description": "Markdown by mdedit.ai: create, find, revise, review, export, and explicitly publish Markdown documents.",
+  "mcpServers": {
+    "mdedit": {
+      "httpUrl": "https://mcp.mdedit.ai/mcp",
+      "oauth": {
+        "enabled": true,
+        "clientId": "6jnivkkqjttt4851qfdls94prg",
+        "redirectUri": "http://localhost:17645/oauth/callback",
+        "scopes": [
+          "openid",
+          "https://mcp.mdedit.ai/mcp/workspaces:read",
+          "https://mcp.mdedit.ai/mcp/articles:read",
+          "https://mcp.mdedit.ai/mcp/articles:write",
+          "https://mcp.mdedit.ai/mcp/reviews:read",
+          "https://mcp.mdedit.ai/mcp/reviews:write",
+          "https://mcp.mdedit.ai/mcp/publishing:read",
+          "https://mcp.mdedit.ai/mcp/publishing:write"
+        ],
+        "audiences": ["https://mcp.mdedit.ai/mcp"]
+      }
+    }
+  }
+}
