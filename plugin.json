@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mdedit",
+  "version": "0.3.0",
+  "description": "Markdown by mdedit.ai: create, find, revise, review, export, and explicitly publish Markdown documents.",
+  "author": {
+    "name": "mdedit.ai",
+    "email": "support@mdedit.ai",
+    "url": "https://mdedit.ai"
+  },
+  "homepage": "https://mdedit.ai/docs/skills/install",
+  "repository": "https://github.com/mangoappstudio/mdedit-agent-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "markdown",
+    "documents",
+    "writing",
+    "publishing",
+    "mcp",
+    "agent-skills"
+  ]
+}

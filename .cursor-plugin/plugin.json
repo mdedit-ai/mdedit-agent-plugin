@@ -1,0 +1,28 @@
+{
+  "name": "mdedit",
+  "version": "0.3.0",
+  "description": "Markdown by mdedit.ai: create, find, revise, review, export, and explicitly publish Markdown documents.",
+  "author": {
+    "name": "mdedit.ai",
+    "email": "support@mdedit.ai"
+  },
+  "homepage": "https://mdedit.ai/docs/skills/install",
+  "repository": "https://github.com/mangoappstudio/mdedit-agent-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "markdown",
+    "documents",
+    "publishing",
+    "mcp",
+    "agent-skills"
+  ],
+  "logo": "assets/logo.png",
+  "category": "productivity",
+  "tags": [
+    "markdown",
+    "writing",
+    "documents"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./adapters/cursor/mcp.json"
+}
