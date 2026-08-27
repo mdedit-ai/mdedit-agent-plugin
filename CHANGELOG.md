@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.1
+
+- Move the canonical public repository to the mdedit.ai GitHub organization.
+- Update every portable and host-specific manifest to the new repository URL.
+
 ## 0.3.0
 
 - Consolidate the portable Agent Plugin and the Gemini CLI, Cursor, and Claude Code compatibility manifests into one public package.

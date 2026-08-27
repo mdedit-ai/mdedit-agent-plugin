@@ -21,7 +21,7 @@ All hosts share the same generated skills. The compatibility manifests do not du
 In VS Code, run **Chat: Install Plugin From Source** and enter:
 
 ```text
-https://github.com/mangoappstudio/mdedit-agent-plugin
+https://github.com/mdedit-ai/mdedit-agent-plugin
 ```
 
 Other Agent Plugins-compatible clients can install or register the same repository using their normal source or local-plugin flow.
@@ -29,7 +29,7 @@ Other Agent Plugins-compatible clients can install or register the same reposito
 ### Gemini CLI
 
 ```bash
-gemini extensions install https://github.com/mangoappstudio/mdedit-agent-plugin
+gemini extensions install https://github.com/mdedit-ai/mdedit-agent-plugin
 ```
 
 Restart Gemini CLI after installation, then authenticate the `mdedit` MCP server when prompted.
@@ -47,7 +47,7 @@ claude plugin validate --strict ./mdedit-agent-plugin
 claude --plugin-dir ./mdedit-agent-plugin
 ```
 
-Version 0.3.0 retains the OAuth flow validated with Claude Code 2.1.246 on macOS. The dedicated secretless public client uses PKCE and a fixed local callback. A scoped API-key override can still use an `X-API-Key` header with `${MDEDIT_API_KEY}` in user configuration; never commit the key to this repository.
+Version 0.3.1 retains the OAuth flow validated with Claude Code 2.1.246 on macOS. The dedicated secretless public client uses PKCE and a fixed local callback. A scoped API-key override can still use an `X-API-Key` header with `${MDEDIT_API_KEY}` in user configuration; never commit the key to this repository.
 
 ## Try it
 

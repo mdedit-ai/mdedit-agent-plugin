@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "mdedit",
   "displayName": "Markdown by mdedit.ai",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Create, find, revise, review, export, and explicitly publish Markdown documents with mdedit.",
   "author": {
     "name": "Vivek Kumar Maskara",
@@ -10,7 +10,7 @@
     "url": "https://mdedit.ai"
   },
   "homepage": "https://mdedit.ai/docs/agents/claude-code",
-  "repository": "https://github.com/mangoappstudio/mdedit-agent-plugin",
+  "repository": "https://github.com/mdedit-ai/mdedit-agent-plugin",
   "license": "Apache-2.0",
   "keywords": [
     "markdown",

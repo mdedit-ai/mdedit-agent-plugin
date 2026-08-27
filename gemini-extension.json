@@ -1,6 +1,6 @@
 {
   "name": "mdedit",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Markdown by mdedit.ai: create, find, revise, review, export, and explicitly publish Markdown documents.",
   "mcpServers": {
     "mdedit": {
