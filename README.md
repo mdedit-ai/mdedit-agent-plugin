@@ -1,4 +1,4 @@
-# Markdown by mdedit.ai
+# Markdown by [mdedit.ai](https://mdedit.ai)
 
 Create, find and read, revise, review, export, and explicitly publish Markdown documents from supported AI agents. This repository is one portable Agent Plugin with shared skills and a hosted mdedit MCP connection.
 
