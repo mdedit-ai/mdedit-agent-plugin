@@ -15,12 +15,13 @@ Read the saved document, then leave focused feedback without changing the writer
    - Use `add_comment` for a question, concern, or explanation.
    - Use `add_suggestion` for a concrete replacement that the writer can accept or reject.
    - Anchor each item to a unique quote with nearby context when needed.
+   - Generate one globally unique UUID `commandId` per mutation and reuse that exact value if the same mutation is retried.
 5. Call `render_article` with `focus: review` so the user can inspect and triage feedback. Summarize the review conversationally: state how many comments or suggestions were added and the main themes. Do not display `workspaceId`, `articleId`, `threadId`, `commandId`, hashes, revisions, or JSON unless the user explicitly asks for diagnostic details.
 
 When the user asks to accept or reject review feedback:
 
 1. Use the `suggestionId` and `targetId` already returned by `add_suggestion`, or call `list_review_threads` with `status: open` and match the user's description against the returned suggestions. Ask one focused question if more than one suggestion could match.
-2. Call `accept_suggestion` to atomically apply the replacement and mark it accepted, or `reject_suggestion` to close it without changing the document. Never simulate acceptance with `edit_article` plus `resolve_thread`.
+2. Generate one globally unique UUID `commandId`, then call `accept_suggestion` to atomically apply the replacement and mark it accepted, or `reject_suggestion` to close it without changing the document. Reuse the exact command ID if the same decision is retried. Never simulate acceptance with `edit_article` plus `resolve_thread`.
 3. Confirm the decision conversationally only when the tool returns `applied: true`.
 
 Review requests never imply permission to call `edit_article`, publish, or unpublish. Review tools work on ordinary documents; do not ask the user to enable collaboration. Treat a review mutation as successful only when the tool returns `applied: true`. If an anchor is ambiguous or changed, read the document again and ask one focused question instead of guessing.

@@ -10,7 +10,7 @@ Read the current durable content, then apply the smallest unambiguous anchored c
 
 1. Resolve the workspace and document using `list_workspaces`, `list_articles`, and `read_article`. Omit the workspace selector when there is one workspace; otherwise pass the chosen `workspaceName`. Pass the chosen `articleTitle` to later tools instead of asking for internal identifiers. Use `list_articles.query` when the user provides a title or keywords, and work from one bounded page at a time instead of retrieving every page. Ask the user to choose when a returned workspace or document match is ambiguous.
 2. Confirm the requested change is specific enough to apply. Ask a focused question when the target text, section, or replacement is unclear.
-3. Build one or more `edit_article` operations:
+3. Generate one globally unique UUID `commandId` for the revision, then build one or more `edit_article` operations. Reuse the exact command ID if the call must be retried:
    - Prefer a unique `quote` anchor with nearby `context`.
    - Use `afterHeading`, `beforeHeading`, or `inSection` for section changes.
    - Use a numeric range only when it came from current tool-returned content.

@@ -14,7 +14,8 @@
           "https://mcp.mdedit.ai/mcp/reviews:read",
           "https://mcp.mdedit.ai/mcp/reviews:write",
           "https://mcp.mdedit.ai/mcp/publishing:read",
-          "https://mcp.mdedit.ai/mcp/publishing:write"
+          "https://mcp.mdedit.ai/mcp/publishing:write",
+          "https://mcp.mdedit.ai/mcp/conversions:execute"
         ]
       }
     }

@@ -6,7 +6,7 @@
       "oauth": {
         "clientId": "3cpl8usae0muq5pll0et9e00n8",
         "callbackPort": 17644,
-        "scopes": "https://mcp.mdedit.ai/mcp/articles:read https://mcp.mdedit.ai/mcp/articles:write https://mcp.mdedit.ai/mcp/publishing:read https://mcp.mdedit.ai/mcp/publishing:write https://mcp.mdedit.ai/mcp/reviews:read https://mcp.mdedit.ai/mcp/reviews:write https://mcp.mdedit.ai/mcp/workspaces:read"
+        "scopes": "https://mcp.mdedit.ai/mcp/articles:read https://mcp.mdedit.ai/mcp/articles:write https://mcp.mdedit.ai/mcp/conversions:execute https://mcp.mdedit.ai/mcp/publishing:read https://mcp.mdedit.ai/mcp/publishing:write https://mcp.mdedit.ai/mcp/reviews:read https://mcp.mdedit.ai/mcp/reviews:write https://mcp.mdedit.ai/mcp/workspaces:read"
       }
     }
   }
