@@ -2,22 +2,7 @@
   "mcpServers": {
     "mdedit": {
       "type": "http",
-      "url": "https://mcp.mdedit.ai/mcp",
-      "auth": {
-        "CLIENT_ID": "7pcagpa091tjrtulkbo5quvdq6",
-        "scopes": [
-          "openid",
-          "profile",
-          "https://mcp.mdedit.ai/mcp/workspaces:read",
-          "https://mcp.mdedit.ai/mcp/articles:read",
-          "https://mcp.mdedit.ai/mcp/articles:write",
-          "https://mcp.mdedit.ai/mcp/reviews:read",
-          "https://mcp.mdedit.ai/mcp/reviews:write",
-          "https://mcp.mdedit.ai/mcp/publishing:read",
-          "https://mcp.mdedit.ai/mcp/publishing:write",
-          "https://mcp.mdedit.ai/mcp/conversions:execute"
-        ]
-      }
+      "url": "https://mcp.mdedit.ai/mcp"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "mdedit",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Markdown by mdedit.ai: create, find, revise, review, export, and explicitly publish Markdown documents.",
   "author": {
     "name": "mdedit.ai",

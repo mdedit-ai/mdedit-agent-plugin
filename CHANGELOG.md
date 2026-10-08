@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.2 — 2026-10-08
+
+- Use Clerk OAuth discovery, DCR, and CIMD rather than fixed Cognito clients.
+- Remove host-specific registration and callback requirements from adapters.
+- Make browser OAuth the default in all five shared skills; retain optional API-key auth for clients without OAuth.
+- Document workspace consent, refresh/reconnect, and existing-connection compatibility.
+
+
 ## 0.3.1
 
 - Move the canonical public repository to the mdedit.ai GitHub organization.
