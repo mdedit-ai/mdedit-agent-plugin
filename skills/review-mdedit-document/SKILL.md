@@ -6,6 +6,13 @@ compatibility: Requires the mdedit MCP server with article read and review tools
 
 # Review a document in mdedit
 
+## Authentication
+
+Use the host's browser OAuth connection flow when authentication is needed. The hosted server discovers Clerk and supports dynamic client registration (DCR) and Client ID Metadata Documents (CIMD); a pre-registered host client or API key is not required for an OAuth-capable host. Ask the user to sign in and approve the workspace access shown by mdedit.ai. Available workspaces are selected by default, with read/write access when the request includes write scopes; the user can narrow access before approving.
+
+Do not ask the user to paste an access token, client secret, authorization code, or API key into chat. Use an existing scoped API-key connection only when the host cannot perform OAuth or the user explicitly chooses it. If a tool reports missing permissions, reconnect through the host to request the needed scopes/workspaces instead of repeatedly retrying the same denied call.
+
+
 Read the saved document, then leave focused feedback without changing the writer's Markdown.
 
 1. Resolve the workspace and document with `list_workspaces` and `list_articles`. Omit the workspace selector when there is one workspace; otherwise pass the chosen `workspaceName`. Pass the chosen `articleTitle` to later tools instead of asking for internal identifiers. Use `query` when the user provides a title or keywords, and work from one bounded page at a time instead of retrieving every page. If several returned names plausibly match, ask the user to choose by name. Never ask the user for an internal ID unless troubleshooting requires it.

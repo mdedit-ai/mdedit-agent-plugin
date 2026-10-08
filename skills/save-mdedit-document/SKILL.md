@@ -6,6 +6,13 @@ compatibility: Requires the mdedit MCP server with list_workspaces and create_ar
 
 # Save a document to mdedit
 
+## Authentication
+
+Use the host's browser OAuth connection flow when authentication is needed. The hosted server discovers Clerk and supports dynamic client registration (DCR) and Client ID Metadata Documents (CIMD); a pre-registered host client or API key is not required for an OAuth-capable host. Ask the user to sign in and approve the workspace access shown by mdedit.ai. Available workspaces are selected by default, with read/write access when the request includes write scopes; the user can narrow access before approving.
+
+Do not ask the user to paste an access token, client secret, authorization code, or API key into chat. Use an existing scoped API-key connection only when the host cannot perform OAuth or the user explicitly chooses it. If a tool reports missing permissions, reconnect through the host to request the needed scopes/workspaces instead of repeatedly retrying the same denied call.
+
+
 Create one durable private document from content the user supplied or asked you to draft.
 
 1. Determine the intended title and Markdown content. Ask a focused question if the source material or document boundary is unclear.
