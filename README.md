@@ -20,23 +20,19 @@ gemini extensions install https://github.com/mdedit-ai/mdedit-agent-plugin
 
 Restart Gemini CLI, then run `/mcp auth mdedit` to connect your account.
 
-To get the latest release:
-
-```bash
-gemini extensions update mdedit
-```
-
-To install a specific version, add `--ref v0.3.2` to the install command. Add `--auto-update` when installing to enable automatic updates.
-
 ### Cursor
 
-Install this repository from source using Cursor's plugin manager:
+For local installation before marketplace approval, clone the plugin into Cursor's local plugin folder:
 
-```text
-https://github.com/mdedit-ai/mdedit-agent-plugin
+```bash
+mkdir -p ~/.cursor/plugins/local
+git clone https://github.com/mdedit-ai/mdedit-agent-plugin.git ~/.cursor/plugins/local/mdedit
 ```
 
-Use the mdedit MCP connection's authentication action to connect your account.
+If that clone already exists, update it with `git -C ~/.cursor/plugins/local/mdedit pull --ff-only`.
+Restart Cursor or run **Developer: Reload Window**, then open **Customize** and confirm mdedit, its five skills, and its MCP server appear. Local plugin imports must be allowed by your organization; ask your admin if they are disabled. Copy the plugin files into this folder rather than symlinking to a repository elsewhere.
+
+Use the mdedit MCP connection's **Authenticate** action to connect your account. After marketplace approval, find mdedit in **Customize**, select **Install**, and choose user or project scope. See [Cursor's plugin documentation](https://cursor.com/docs/plugins).
 
 ### Claude Code
 
