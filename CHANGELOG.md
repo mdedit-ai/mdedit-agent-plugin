@@ -2,6 +2,8 @@
 
 ## 0.3.2 — 2026-10-08
 
+- Bound Gemini OAuth requests to identity, refresh, and document-workflow scopes.
+
 - Use Clerk OAuth discovery, DCR, and CIMD rather than fixed Cognito clients.
 - Remove host-specific registration and callback requirements from adapters.
 - Make browser OAuth the default in all five shared skills; retain optional API-key auth for clients without OAuth.

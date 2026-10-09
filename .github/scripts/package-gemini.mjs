@@ -5,7 +5,11 @@ const manifest = JSON.parse(readFileSync('gemini-extension.json', 'utf8'));
 assert.equal(manifest.name, 'mdedit');
 assert.match(manifest.version, /^\d+\.\d+\.\d+$/);
 if (process.env.RELEASE_VERSION) assert.equal(manifest.version, process.env.RELEASE_VERSION);
-assert.deepEqual(manifest.mcpServers, { mdedit: { httpUrl: 'https://mcp.mdedit.ai/mcp' } });
+assert.equal(manifest.mcpServers?.mdedit?.httpUrl, 'https://mcp.mdedit.ai/mcp');
+assert.deepEqual(manifest.mcpServers.mdedit.oauth, {
+  enabled: true,
+  scopes: ['openid', 'email', 'offline_access', 'workspaces:read', 'articles:read', 'articles:write', 'reviews:read', 'reviews:write', 'publishing:read', 'publishing:write', 'conversions:execute'],
+});
 const skills = ['find', 'publish', 'review', 'revise', 'save'].map(name => `${name}-mdedit-document`);
 assert.deepEqual(readdirSync('skills').sort(), skills.sort());
 for (const name of skills) {
