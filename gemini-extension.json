@@ -4,7 +4,23 @@
   "description": "Markdown by mdedit.ai: create, find, revise, review, export, and explicitly publish Markdown documents.",
   "mcpServers": {
     "mdedit": {
-      "httpUrl": "https://mcp.mdedit.ai/mcp"
+      "httpUrl": "https://mcp.mdedit.ai/mcp",
+      "oauth": {
+        "enabled": true,
+        "scopes": [
+          "openid",
+          "email",
+          "offline_access",
+          "workspaces:read",
+          "articles:read",
+          "articles:write",
+          "reviews:read",
+          "reviews:write",
+          "publishing:read",
+          "publishing:write",
+          "conversions:execute"
+        ]
+      }
     }
   }
 }

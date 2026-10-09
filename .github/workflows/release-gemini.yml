@@ -1,0 +1,70 @@
+name: Release Gemini extension
+on:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Manifest version to publish (without v prefix)
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: gemini-release-${{ github.event_name }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build Gemini-only archive
+        env:
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: node .github/scripts/package-gemini.mjs
+      - name: Verify archive with Gemini CLI
+        env:
+          GEMINI_CLI_HOME: ${{ runner.temp }}/gemini-smoke
+        run: |
+          npm install --prefix "$RUNNER_TEMP/gemini-runtime" @google/gemini-cli@0.63.0 --no-audit --no-fund
+          mkdir -p "$RUNNER_TEMP/gemini-source"
+          tar -xzf dist/mdedit.tar.gz -C "$RUNNER_TEMP/gemini-source"
+          printf 'y\n' | "$RUNNER_TEMP/gemini-runtime/node_modules/.bin/gemini" extensions install "$RUNNER_TEMP/gemini-source" --consent
+          "$RUNNER_TEMP/gemini-runtime/node_modules/.bin/gemini" extensions list
+      - uses: actions/upload-artifact@v4
+        with:
+          name: gemini-extension
+          path: dist/mdedit.tar.gz
+  publish:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: gemini-extension
+          path: dist
+      - name: Create new immutable tag and GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_VERSION: ${{ inputs.version }}
+        run: |
+          set -euo pipefail
+          test "$(node -p 'JSON.parse(require("fs").readFileSync("gemini-extension.json")).version')" = "$RELEASE_VERSION"
+          tag="v$RELEASE_VERSION"
+          if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null 2>&1; then
+            echo "Tag $tag already exists; refusing to overwrite it."
+            exit 1
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git tag -a "$tag" -m "Gemini extension $RELEASE_VERSION"
+          git push origin "$tag"
+          gh release create "$tag" dist/mdedit.tar.gz --verify-tag --latest --title "Gemini extension $RELEASE_VERSION" --notes "Gemini CLI extension with five shared mdedit skills and hosted MCP OAuth discovery. Install: gemini extensions install https://github.com/mdedit-ai/mdedit-agent-plugin . Update: gemini extensions update mdedit . Public document publishing requires explicit user confirmation."
