@@ -20,6 +20,14 @@ gemini extensions install https://github.com/mdedit-ai/mdedit-agent-plugin
 
 Restart Gemini CLI, then run `/mcp auth mdedit` to connect your account.
 
+To get the latest release:
+
+```bash
+gemini extensions update mdedit
+```
+
+To install a specific version, add `--ref v0.3.2` to the install command. Add `--auto-update` when installing to enable automatic updates.
+
 ### Cursor
 
 For local installation before marketplace approval, clone the plugin into Cursor's local plugin folder:
